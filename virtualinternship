@@ -1,0 +1,72 @@
+# Accenture
+
+My role- Data analyst
+
+Business  Problem
+
+- An audit of their big data practice
+- Recommendations for a successful IPO
+- An analysis of their content categories that highlights the top 5 categories with the largest aggregate popularity
+
+Task assigned for a data analyst
+
+- An analysis of their content categories that highlight the top 5 categories with the largest aggregate popularity
+
+Data sets Available:
+
+- content
+- Location
+- Profile
+- Reactions
+- Reaction Type
+- Sessions
+- User
+
+Required Data sets
+
+- Content
+- Reactions
+- Reaction Type
+
+Since we are trying to identify the top 5 categories based on popularity, we need to identify datasets with relevant information that can be merged together.
+
+Used R-
+
+uploaded all the datasets in R.
+
+Merged reaction dataset with content set using content id
+
+```r
+merge(DF1,DF2, by.x="",by.y="")
+```
+
+Then merged this new dataset with the reaction type dataset using reaction type and crated the final dataset.
+
+Renamed some columns for ease to understand 
+
+```r
+colnames(socialbuzz)[4] <- "user_id"
+```
+
+After changing the colname, Identified unwanted characters in the column 
+
+```r
+str_replace_all(socialbuzz$Con_category, "[^[:alnum:]]", "")
+## found this code on: https://www.geeksforgeeks.org/remove-all-special-characters-from-string-in-r/
+```
+
+After cleaning downloaded the table as csv
+
+```r
+write.table(accenture_clean,file = "socialbuzz1.csv",row.names=F, sep=",")
+```
+
+Final dataset cleaned and to be submitted
+
+[socialbuzz1.csv](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f133d3b1-d75f-49e5-9ec1-3c7116e09917/socialbuzz1.csv)
+
+created visuals in PowerPoint:
+
+[Data Analytics - Task 3.pptx](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/539c5109-2836-4bc9-84e5-aac758d19bb3/Data_Analytics_-_Task_3.pptx)
+
+Working on virtual Presentation
